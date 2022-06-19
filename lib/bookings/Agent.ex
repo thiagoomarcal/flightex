@@ -8,7 +8,6 @@ defmodule Flightex.Bookings.Agent do
   end
 
   def save(%Booking{} = booking) do
-    # uuid = if byte_size(booking.id) == 0, do: UUID.uuid4(), else: booking.id
     Agent.update(__MODULE__, &update_state(&1, booking, booking.id))
     {:ok, booking.id}
   end

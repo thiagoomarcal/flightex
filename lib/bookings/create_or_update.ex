@@ -11,22 +11,14 @@ defmodule Flightex.Bookings.CreateOrUpdate do
       when is_struct(complete_date) do
     booking =
       struct(Booking, %{
+        id: UUID.uuid4(),
         complete_date: complete_date,
         local_origin: local_origin,
         local_destination: local_destination,
         user_id: user_id
       })
 
-    booking |> Map.put(:id, UUID.uuid4())
-
-    # if is_nil(booking.id) do
-    #   booking |> Map.put(:id, UUID.uuid4())
-    # else
-    #   booking.id
-    # end
-
     Agent.save(booking)
-
     {:ok, booking.id}
   end
 
