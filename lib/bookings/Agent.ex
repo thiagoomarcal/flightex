@@ -14,7 +14,13 @@ defmodule Flightex.Bookings.Agent do
 
   def get(uuid), do: Agent.get(__MODULE__, &get_booking(&1, uuid))
 
-  def list_all(), do: Agent.get(__MODULE__, & &1)
+  def list_all, do: Agent.get(__MODULE__, & &1)
+
+  def list_between(from_date, to_date) do
+    list_all()
+    |> Map.values()
+    |> Booking.filter_bookings(from_date, to_date)
+  end
 
   defp get_booking(state, uuid) do
     case Map.get(state, uuid) do

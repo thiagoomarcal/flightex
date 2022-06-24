@@ -17,4 +17,19 @@ defmodule Flightex.Bookings.Booking do
   def build(_complete_date, _local_origin, _local_destination, _user_id) do
     {:error, "Invalid parameters"}
   end
+
+  def filter_bookings(
+        [%__MODULE__{} = _first | _rest] = bookings,
+        %Date{} = from_date,
+        %Date{} = to_date
+      ) do
+    bookings
+    |> Enum.filter(&do_dates_overlap?(&1, from_date, to_date))
+    |> Enum.sort_by(& &1.local_destination, :desc)
+  end
+
+  defp do_dates_overlap?(%__MODULE__{} = booking, start_date, end_date) do
+    Date.compare(booking.complete_date, start_date) !=
+      Date.compare(booking.complete_date, end_date)
+  end
 end
