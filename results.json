@@ -53,11 +53,25 @@
       "test": "test get/1 when the user wasn't found, returns an error"
     },
     {
+      "describe": "build/3",
+      "file": "/home/thiagoomarcal/Documents/repos/flightex/test/users/users_test.exs",
+      "line": 9,
+      "module": "Elixir.Flightex.Users.UserTest",
+      "test": "test build/3 when all params are valid, returns the user"
+    },
+    {
+      "describe": "build/3",
+      "file": "/home/thiagoomarcal/Documents/repos/flightex/test/users/users_test.exs",
+      "line": 22,
+      "module": "Elixir.Flightex.Users.UserTest",
+      "test": "test build/3 when cpf is a integer"
+    },
+    {
       "describe": "create_or_update_user/1",
       "file": "/home/thiagoomarcal/Documents/repos/flightex/test/flightex_test.exs",
       "line": 5,
       "module": "Elixir.FlightexTest",
-      "test": "test create_or_update_user/1 when all params are valid, returns a new user"
+      "test": "test create_or_update_user/1 when all params are valid, update an user or creates a new user"
     },
     {
       "describe": "save/1",
@@ -81,20 +95,6 @@
       "test": "test get/1 when the user is't founded, returns an error"
     },
     {
-      "describe": "build/3",
-      "file": "/home/thiagoomarcal/Documents/repos/flightex/test/users/users_test.exs",
-      "line": 9,
-      "module": "Elixir.Flightex.Users.UserTest",
-      "test": "test build/3 when all params are valid, returns the user"
-    },
-    {
-      "describe": "build/3",
-      "file": "/home/thiagoomarcal/Documents/repos/flightex/test/users/users_test.exs",
-      "line": 22,
-      "module": "Elixir.Flightex.Users.UserTest",
-      "test": "test build/3 when cpf is a integer"
-    },
-    {
       "describe": "generate/1",
       "file": "/home/thiagoomarcal/Documents/repos/flightex/test/bookings/report_test.exs",
       "line": 15,
@@ -106,7 +106,7 @@
       "file": "/home/thiagoomarcal/Documents/repos/flightex/test/bookings/report_test.exs",
       "line": 67,
       "module": "Elixir.Flightex.Bookings.ReportTest",
-      "test": "test generate_report/3 when called, return the content"
+      "test": "test generate_report/3 when called, it returns a new file containing a list of bookings registered in the date range entered."
     },
     {
       "describe": "generate_report/3",

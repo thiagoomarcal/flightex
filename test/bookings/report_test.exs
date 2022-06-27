@@ -64,7 +64,7 @@ defmodule Flightex.Bookings.ReportTest do
       :ok
     end
 
-    test "when called, return the content" do
+    test "when called, it returns a new file containing a list of bookings registered in the date range entered." do
       from_date = ~D[2021-03-14]
       to_date = ~D[2021-04-18]
 
